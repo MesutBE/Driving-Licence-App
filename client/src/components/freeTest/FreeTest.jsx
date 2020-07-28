@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { Image, Row, Col, Container } from "react-bootstrap";
 import "./FreeTest.css";
 import TestNavbar from "./TestNavbar";
@@ -13,85 +13,94 @@ const FreeTest = () => {
   const [fileNames, setFileNames] = useState([]);
 
   const getAnswer = (idx, answerNo) => {
-    if (typeof Storage !== 'undefined') {
+    if (typeof Storage !== "undefined") {
       //Code for localStorage/sessionStorage.
       if (localStorage.userAnswer) {
-        let answer_in_storage = JSON.parse(window.localStorage.getItem('userAnswer'));
+        let answer_in_storage = JSON.parse(
+          window.localStorage.getItem("userAnswer")
+        );
         setUserAnswer(answer_in_storage);
-        let isAnswered_before = userAnswer.filter((el) => el.questionId === idx);
+        let isAnswered_before = userAnswer.filter(
+          (el) => el.questionId === idx
+        );
         if (isAnswered_before.length === 0) {
           let usr_answer = userAnswer.slice();
-          usr_answer.push({ questionId: idx, answer: answerNo, situationId: situationNumber });
+          usr_answer.push({
+            questionId: idx,
+            answer: answerNo,
+            situationId: situationNumber,
+          });
           setUserAnswer(usr_answer);
-          window.localStorage.setItem('userAnswer', JSON.stringify(userAnswer));
+          window.localStorage.setItem("userAnswer", JSON.stringify(userAnswer));
         } else {
           let usr_answer = userAnswer.slice();
           let changedAnswer = usr_answer.filter((el) => el.questionId !== idx);
-          changedAnswer.push({ questionId: idx, answer: answerNo, situationId: situationNumber });
+          changedAnswer.push({
+            questionId: idx,
+            answer: answerNo,
+            situationId: situationNumber,
+          });
           setUserAnswer(changedAnswer);
-          window.localStorage.setItem('userAnswer', JSON.stringify(userAnswer));
+          window.localStorage.setItem("userAnswer", JSON.stringify(userAnswer));
         }
         console.log(userAnswer);
       } else {
         localStorage.userAnswer = JSON.stringify([
-          { questionId: idx, answer: answerNo, situationId: situationNumber }
+          { questionId: idx, answer: answerNo, situationId: situationNumber },
         ]);
       }
     } else {
       //Sorry! No Web Storage support..
-      alert('Sorry! No Web Storage support..');
+      alert("Sorry! No Web Storage support..");
     }
   };
 
-   const goToNext = () => (
-
-     situationNumber < testLength ? setSituationNumber(situationNumber+1) : situationNumber
-   )
-   
+  const goToNext = () =>
+    situationNumber < testLength
+      ? setSituationNumber(situationNumber + 1)
+      : situationNumber;
 
   useEffect(() => {
-      const fetchSituation = async () => {
-        const res = await fetch(`/api/tests/'equipment'/${situationNumber}`);
-        const data = await res.json();
-        setSituation(data);
-      };
-      
-      fetchSituation();
+    const fetchSituation = async () => {
+      const res = await fetch(`/api/tests/'equipment'/${situationNumber}`);
+      const data = await res.json();
+      setSituation(data);
+    };
 
-      const fetchQuestion = () => {
-        return fetch(`/api/tests/question/'equipment'/${situationNumber}`)
-          .then((res) => res.json())
-          .then((data) => data);
-      };
-      //console.log(fetchQuestion());
-      fetchQuestion().then((gettingQuestion) => {
-        setQuestions(gettingQuestion);
-      });
-      // Total situation count
-      const fetchSituationCount = () => {
-        return fetch(`/api/tests/'equipment'`)
-          .then((res) => res.json())
-          .then((data) => data);
-      };
-      //console.log(fetchQuestion());
-      fetchSituationCount().then((gettingTotal) => {
-        let count = gettingTotal.length;
-        setTestLength(count);
-      }); 
+    fetchSituation();
 
+    const fetchQuestion = () => {
+      return fetch(`/api/tests/question/'equipment'/${situationNumber}`)
+        .then((res) => res.json())
+        .then((data) => data);
+    };
+    //console.log(fetchQuestion());
+    fetchQuestion().then((gettingQuestion) => {
+      setQuestions(gettingQuestion);
+    });
+    // Total situation count
+    const fetchSituationCount = () => {
+      return fetch(`/api/tests/'equipment'`)
+        .then((res) => res.json())
+        .then((data) => data);
+    };
+    //console.log(fetchQuestion());
+    fetchSituationCount().then((gettingTotal) => {
+      let count = gettingTotal.length;
+      setTestLength(count);
+    });
 
-      // Fetch file names
-      const fetchFileNames = () => {
-        return fetch(`/api/tests/filenames`)
-          .then((res) => res.json())
-          .then((data) => data);
-      };
+    // Fetch file names
+    const fetchFileNames = () => {
+      return fetch(`/api/tests/filenames`)
+        .then((res) => res.json())
+        .then((data) => data);
+    };
 
-      fetchFileNames().then((data) => {
-        setFileNames(data);
-      })
-    }, []
-  );
+    fetchFileNames().then((data) => {
+      setFileNames(data);
+    });
+  }, []);
 
   return (
     <>
@@ -100,39 +109,42 @@ const FreeTest = () => {
         <Row className="test-part">
           <Col xs={1}></Col>
           <Col xs={8} md={9}>
-            {fileNames.filter((el) =>
-              Number(el.situationNumber) === Number(situationNumber) && el.testName === 'test-1'
-            ).map((img) => (
-              <Image
-                src={img.fileRelativePath } //{situation_img.image}
-                rounded
-                className="image-situation  my-2"
-                key={img.situationNumber}
-              />
-            ))}
+            {fileNames
+              .filter(
+                (el) =>
+                  Number(el.situationNumber) === Number(situationNumber) &&
+                  el.testName === "test-1"
+              )
+              .map((img) => (
+                <Image
+                  src={img.fileRelativePath} //{situation_img.image}
+                  rounded
+                  className="image-situation  my-2"
+                  key={img.situationNumber}
+                />
+              ))}
           </Col>
           <Col xs={1} md={2}>
             <Image
               src="/assets/next2.jpeg"
               roundedCircle
               className="next-button"
-              onClick={() => goToNext() }
+              onClick={() => goToNext()}
             />
           </Col>
         </Row>
         <Col>
           <Row className="situation ml-3">
+            <Player url={"./assets/a.mp3"} />
+            {/* <audio useRef="audio_tag" src="./assets/a.mp3" controls autoPlay/> */}
             {situation.map((text, id) => (
-              <h3 key={id}>
-                <Player url={"/assets/tests/test-1/1/- 2013_06_29_10_47_281--2.mp3"}/>
-                {text.situation}
-              
-              </h3>
+              <h3 key={id}>{text.situation}</h3>
             ))}
           </Row>
 
           {questions.map((question) => (
             <Row key={question.questionId} className=" ml-3">
+              <Player url={"./assets/a.mp3"} />
               <Col
                 className="questions"
                 xs={8}
@@ -173,9 +185,7 @@ const FreeTest = () => {
       </Container>
       <ul>
         {userAnswer.map((a) => (
-          <li key={a.questionId}>
-            {/* {a.questionId} --> {a.answer} */}
-          </li>
+          <li key={a.questionId}>{/* {a.questionId} --> {a.answer} */}</li>
         ))}
       </ul>
     </>
