@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Image, Row, Col, Container } from "react-bootstrap";
 import "./FreeTest.css";
 import TestNavbar from "./TestNavbar";
+import Player from "./Player";
 
 const FreeTest = () => {
   const [situationNumber, setSituationNumber] = useState(1);
@@ -10,7 +11,6 @@ const FreeTest = () => {
   const [userAnswer, setUserAnswer] = useState([]);
   const [testLength, setTestLength] = useState(null);
   const [fileNames, setFileNames] = useState([]);
-  const [fileName, setFileName] = useState([]);
 
   const getAnswer = (idx, answerNo) => {
     if (typeof Storage !== 'undefined') {
@@ -123,7 +123,11 @@ const FreeTest = () => {
         <Col>
           <Row className="situation ml-3">
             {situation.map((text, id) => (
-              <h3 key={id}>{text.situation}</h3>
+              <h3 key={id}>
+                <Player url={"/assets/tests/test-1/1/- 2013_06_29_10_47_281--2.mp3"}/>
+                {text.situation}
+              
+              </h3>
             ))}
           </Row>
 
