@@ -49,19 +49,14 @@ const FreeTest = () => {
    )
    
 
-  useEffect(
-    () => {
-
-
-      const fetchSituation = () => {
-        return fetch(`/api/tests/'equipment'/${situationNumber}`)
-          .then((res) => res.json())
-          .then((data) => data);
+  useEffect(() => {
+      const fetchSituation = async () => {
+        const res = await fetch(`/api/tests/'equipment'/${situationNumber}`);
+        const data = await res.json();
+        setSituation(data);
       };
-      //console.log(fetchSituation());
-      fetchSituation().then((gettingData) => {
-        setSituation(gettingData);
-      });
+      
+      fetchSituation();
 
       const fetchQuestion = () => {
         return fetch(`/api/tests/question/'equipment'/${situationNumber}`)
@@ -95,8 +90,7 @@ const FreeTest = () => {
       fetchFileNames().then((data) => {
         setFileNames(data);
       })
-    },
-    []
+    }, []
   );
 
   return (
