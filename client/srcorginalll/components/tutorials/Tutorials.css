@@ -1,0 +1,13 @@
+.tutorials {
+  font-family: "Rowdies", cursive;
+}
+@media only screen and (max-width: 600px) {
+  .video-section {
+    margin-left: 125px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .first-video {
+    margin-left: 3vw;
+  }
+}

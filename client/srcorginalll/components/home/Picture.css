@@ -1,0 +1,27 @@
+.first-image {
+  min-width: 100vw;
+  height: 60vh;
+}
+.driver-card {
+  position: absolute;
+  bottom: 170px;
+  left: -150px;
+  color: #fd8a5e;
+  width: 20vw;
+  height: 14vh;
+}
+.card-text {
+  color: #019286;
+  font-family: "Oxygen", sans-serif;
+  font-size: 1rem;
+}
+.card-title {
+  font-size: 1.4vw;
+}
+@media only screen and (max-width: 600px) {
+  .first-image {
+    min-width: 110vw;
+    height: 30vh;
+    margin-bottom: 10%;
+  }
+}

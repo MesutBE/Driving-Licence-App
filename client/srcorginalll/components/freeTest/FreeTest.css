@@ -1,0 +1,67 @@
+.free-test {
+	height: 100%;
+	min-width: 100%;
+	margin: 0 auto;
+	font-family: "Rowdies", cursive;
+	font-size: 0.8rem;
+	background-color: rgb(252, 254, 255);
+}
+h1 {
+	color: rgb(0, 140, 255);
+}
+h3 {
+	font-size: 2.8vh;
+}
+h4,
+label {
+	font-size: 2.2vh;
+}
+.test-part {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 5;
+}
+.image-situation {
+	height: 50vh;
+	width: 65vw;
+}
+.situation {
+	color: rgb(37, 71, 121);
+}
+.questions {
+	background-color: #c4d2df;
+	-webkit-box-shadow: 0 0 2px 1px rgb(4, 64, 112);
+	-moz-box-shadow: 0 0 2px 1px rgb(4, 64, 112);
+	box-shadow: 0 0 2px 1px rgb(4, 64, 112);
+	display: flex;
+	flex: 1;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 1vw;
+}
+.check-box {
+	background-color: #c9daf0;
+	-webkit-box-shadow: 0 0 2px 1px rgb(4, 64, 112);
+	-moz-box-shadow: 0 0 2px 1px rgb(4, 64, 112);
+	box-shadow: 0 0 2px 1px rgb(4, 64, 112);
+	padding: 1vw;
+}
+.next-button {
+	width: 12vw;
+}
+@media only screen and (min-width: 600px) {
+	.questions,
+	.situation {
+		margin-left: 80px;
+		margin-right: 0;
+	}
+	.check-box {
+		margin-left: 0;
+
+	}
+}

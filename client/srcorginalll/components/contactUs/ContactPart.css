@@ -1,0 +1,21 @@
+h2,
+i {
+  color: rgb(20, 137, 167);
+}
+i {
+  margin-right: 10px;
+  margin-top: 3px;
+}
+a {
+  color: black;
+}
+@media only screen and (min-width: 600px) {
+  .parts {
+    margin-left: 27%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .parts {
+    margin-left: 15%;
+  }
+}

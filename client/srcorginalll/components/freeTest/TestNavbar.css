@@ -1,0 +1,18 @@
+.free {
+	color: rgb(5, 94, 110);
+  font-weight: bolder;
+  font-size: 20px;
+}
+.color-navbar {
+	background-color: #b5e2f7;
+	margin: 0 auto;
+}
+.next-button {
+	width: 14vw;
+	height: 6vh;
+	font-size: 22px;
+}
+h4, h2 {
+font-size: 20px;
+}
+

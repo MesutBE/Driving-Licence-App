@@ -1,0 +1,33 @@
+.container {
+  height: 100%;
+  margin: 0;
+  font-family: "Rowdies", cursive;
+}
+
+.practice-pic {
+  width: 15rem;
+}
+.practice-text {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  color: #fd8a5e;
+}
+h5 {
+  color: #ff598f;
+}
+.driver-card {
+  font-size: 1vw;
+}
+.practice-pic:hover {
+  position: relative;
+  top: -5px;
+  left: -5px;
+  width: 250px;
+  height: auto;
+  display: block;
+  z-index: 999;
+}

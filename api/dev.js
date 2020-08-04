@@ -5,14 +5,14 @@ const devServer = express();
 const api = require('./server.js');
 
 devServer.use((req, res, next) => {
-  console.log(req.method + ': ' + req.path);
-  next();
+    console.log(req.method + ': ' + req.path);
+    next();
 });
 
 devServer.use('/api', api);
 
 devServer.get('/', (req, res) => {
-  res.send('frontend');
+    res.send('frontend');
 });
 
 

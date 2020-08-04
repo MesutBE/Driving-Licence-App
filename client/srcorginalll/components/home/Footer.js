@@ -6,10 +6,8 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <Navbar
-      bg="info"
-      expand = "lg"
-      sticky = "bottom"
-      variant="dark"
+      bg="light"
+      variant="footer"
       className="justify-content-center mt-5 footer"
     >
       <Navbar.Brand style={{ fontSize: "1rem" }}>

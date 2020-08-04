@@ -1,0 +1,12 @@
+.result-part {
+  height: 100%;
+  margin: 0;
+  font-family: "Rowdies", cursive;
+  font-size: 1.3rem;
+}
+.picture-part {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
