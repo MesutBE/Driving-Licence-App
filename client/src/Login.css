@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  min-height: 450px;
+  padding: 0;
+  font-family: "Rowdies", cursive;
+  height: 100vh;
+}
+.Container{
+  min-height: 450px;
+}
+#root {
+  height: 100%;
+}

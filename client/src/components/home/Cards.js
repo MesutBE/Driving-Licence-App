@@ -34,7 +34,7 @@ const Cards = () => {
                 practice makes you perfect so you can easily pass the police
                 test at first try.
               </Card.Text>
-              <Button variant="success"> Sign Up</Button>
+              <Button variant="success" href="/signup"> Sign Up</Button>
             </Card.Body>
           </Card>
         </Col>

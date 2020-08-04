@@ -1,5 +1,9 @@
+.picture{
+	width: 90%;
+}
 .first-image {
-	min-width: 100vw;
+	min-width: 90vw;
+	margin-left: 130px;
 	height: 40vh;
 }
 .driver-card {

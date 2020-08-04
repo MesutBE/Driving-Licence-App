@@ -5,6 +5,7 @@ import Practice from "./components/home/Practice";
 import Footer from "./components/home/Footer";
 import CustomNavbar from "./components/home/CustomNavbar";
 
+
 export default class Home extends Component {
   constructor() {
     super();
@@ -23,7 +24,7 @@ export default class Home extends Component {
     return (
       <>
         <CustomNavbar />
-        <Picture />
+        <Picture />    
         <Cards />
         <Practice />
         <Footer />
