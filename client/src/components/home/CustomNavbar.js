@@ -65,7 +65,7 @@ else
       variant="dark"
       className="mb-5"
     >
-      <Navbar.Brand href="/" active>
+      <Navbar.Brand href="/" active="true">
         WebWinners
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
