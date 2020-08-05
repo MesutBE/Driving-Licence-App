@@ -19,5 +19,5 @@ app.use("/", require("./home"));
 app.use("/", require("./login/login.js"));
 app.use("/tests", require("./tests")); // ./tests/index.js
 app.use("/comment", require("./comment"));
-
+app.use('/users', require('./users'));
 module.exports = app;

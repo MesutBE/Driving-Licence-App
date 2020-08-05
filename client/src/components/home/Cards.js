@@ -42,6 +42,7 @@ const Cards = () => {
                 {" "}
                 Sign Up
               </Button>
+              <Button variant="success" href="/signup"> Sign Up</Button>
             </Card.Body>
           </Card>
         </Col>
