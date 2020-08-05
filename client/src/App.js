@@ -21,7 +21,7 @@ import Signup from "./components/home/Signup";
 
 
 // import Signup component
-import Signup from "./components/SignUp/SignUp";
+// import Signup from "./components/SignUp/SignUp";
 
 class App extends Component {
   render() {
