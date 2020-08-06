@@ -15,30 +15,40 @@ const SignUp = () => {
   // call useState multiple times to assign the values in same way
   const firstName = useInput(""); // varchar
   const lastName = useInput(""); // varchar
-  const country = useInput(""); // varchar
+  const userName = useInput(""); // varchar
   const email = useInput(""); // varchar
   const password = useInput(""); // varchar
+  const country = useInput(""); // varchar
+  const address = useInput(""); // varchar
+  const mobile = useInput(""); // varchar
+  const secretquestion = useInput(""); // varchar
+  const secretanswer = useInput(""); // varchar
 
   // Send all the input to backend via axios post request
   const submitForm = async () => {
     try {
-      const res = await fetch("/api/newUser", {
+      const res = await fetch("/api/users", {
         method: "POST",
         body: JSON.stringify({
           firstName: firstName.value,
           lastName: lastName.value,
-          country: country.value,
+          userName: userName.value,
           email: email.value,
           password: password.value,
+          country: country.value,
+          address: address.value,
+          mobile: mobile.value,
+          secretquestion: secretquestion.value,
+          secretanswer: secretanswer.value,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
-      const data = await res.data.token;
-      if (data) {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("ID", data.user._id);
+      const data = await res.json();
+      if (res.status === 200 && res.length !== 0) {
+        localStorage.setItem("token", data);
+        localStorage.setItem("username", userName.value);
         setSignedUp(true);
       } else {
         setSignedUp(false);
@@ -56,8 +66,8 @@ const SignUp = () => {
         <Redirect to="/" />
       ) : (
         <div>
-          <Button variant="secondary ml-2" onClick={handleShow}>
-            Sign Up
+            <Button variant="secondary ml-2" onClick={handleShow}>
+            Sign-Up
           </Button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Body>
@@ -72,10 +82,15 @@ const SignUp = () => {
               >
                 <FormFields
                   firstName={firstName}
-                  lastName={lastName}
-                  country={country}
+                    lastName={lastName}
+                    userName={userName}
                   email={email}
                   password={password}
+                    country={country}
+                    address={address}
+                    mobile={mobile}
+                    secretquestion={secretquestion}
+                    secretanswer={secretanswer}
                 />
                 <div className="container my-3">
                   <button type="submit" className="btn btn-secondary btn-block">

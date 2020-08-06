@@ -1,5 +1,5 @@
 import React,{Component}from "react";
-import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
+import { Nav, Navbar, Form, FormControl, Button,Badge } from "react-bootstrap";
 import {Redirect} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import LoginForm from "./LoginComponent";
@@ -10,12 +10,15 @@ class CustomNavbar extends Component {
     constructor(){
       super();
     const token = localStorage.getItem("token")
+    const username = localStorage.getItem("username")
+
       let loggedIn = true
     if(token==null){
       loggedIn=false
+
       }
       this.state = {
-        username:'',
+        username:username,
         password:'',
         loggedIn
       }
@@ -39,8 +42,7 @@ class CustomNavbar extends Component {
    if (result.status === 200 && data.length !== 0) {
  localStorage.setItem("token", "webwinnersloggedin")
  localStorage.setItem("username",this.state.username);
- sessionStorage.setItem('token',JSON.stringify(data))
-     this.setState({ loggedIn: true });
+     this.setState({ loggedIn: true});
 }
 }
 
@@ -48,9 +50,36 @@ class CustomNavbar extends Component {
    this.setState({[e.target.name]:e.target.value});
   }
   render() {
-
+let user = this.state;
   if (this.state.loggedIn=== true || localStorage.getItem("token") !== null) {
-         return (<Redirect to='/admin' />)
+         return (
+           <Navbar
+             style={{
+               backgroundColor: "rgba(55, 61, 73, 0.975)",
+               marginBottom: "200px",
+             }}
+             expand="lg"
+             fixed="top"
+             variant="dark"
+             className="mb-5"
+           >
+             <Navbar.Brand href="/" active="true">
+               WebWinners
+             </Navbar.Brand>
+             <Navbar.Toggle aria-controls="basic-navbar-nav" />
+             <Navbar.Collapse id="basic-navbar-nav">
+               <Nav className="mr-auto">
+                 <Nav.Link href="/tutorials">Tutorials</Nav.Link>
+                 <Nav.Link href="/tests">Take Tests</Nav.Link>
+                 <Nav.Link href="/contactUs">Contact Us</Nav.Link>
+               </Nav>
+             <h2><Badge color="primary" style={{textTransform: 'capitalize'}}> WelCome..{user.username} 🇷</Badge></h2>
+           <Button variant="danger" href="/logout">logout</Button>
+
+             </Navbar.Collapse>
+           </Navbar>
+
+         )
   }
 
 else
