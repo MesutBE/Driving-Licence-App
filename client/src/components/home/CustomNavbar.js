@@ -3,6 +3,7 @@ import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import {Redirect} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import LoginForm from "./LoginComponent";
+import Signup from "../SignUp/SignUp";
 
 class CustomNavbar extends Component {
 
@@ -86,6 +87,7 @@ else
           <FormControl type="password" name="password" value={this.password} placeholder="Password" className="mr-sm-2"  onChange={this.onChange} required/>
           <Button variant="success" onClick={this.login}>Log In</Button>
         </Form>
+        <Signup />
       </Navbar.Collapse>
     </Navbar>
   );
