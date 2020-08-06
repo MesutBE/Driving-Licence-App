@@ -4,6 +4,7 @@ import { Row, Col, Card, Button, Jumbotron } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Cards = () => {
+
   return (
     <div id="cards-part">
       <h2 className="text-center how" style={{ fontSize: "2.2rem" }}>
@@ -38,11 +39,11 @@ const Cards = () => {
                 practice makes you perfect so you can easily pass the police
                 test at first try.
               </Card.Text>
-              <Button variant="secondary" size="lg">
-                {" "}
-                Sign Up
-              </Button>
-              <Button variant="success" href="/signup"> Sign Up</Button>
+              <Link to="/signup">
+                <Button variant="secondary" size="lg">
+                Sign-Up
+                </Button>
+              </Link>
             </Card.Body>
           </Card>
         </Col>
