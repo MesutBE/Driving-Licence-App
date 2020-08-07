@@ -1,4 +1,4 @@
-import React,{Component}from "react";
+import React,{Component } from "react";
 import { Nav, Navbar, Form, FormControl, Button,Badge } from "react-bootstrap";
 import {Redirect} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -83,7 +83,6 @@ let account = this.state;
   }
 
 else
-
   return (
     <Navbar
       style={{
@@ -102,7 +101,7 @@ else
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/tutorials">Tutorials</Nav.Link>
-          <Nav.Link href="/tests">Take Practice Test</Nav.Link>
+          <Nav.Link href="/freetest">Take Practice Test</Nav.Link>
           <Nav.Link href="/contactUs">Contact Us</Nav.Link>
         </Nav>
         <Form inline>
