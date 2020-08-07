@@ -50,7 +50,7 @@ class CustomNavbar extends Component {
    this.setState({[e.target.name]:e.target.value});
   }
   render() {
-let user = this.state;
+let account = this.state;
   if (this.state.loggedIn=== true || localStorage.getItem("token") !== null) {
          return (
            <Navbar
@@ -70,10 +70,10 @@ let user = this.state;
              <Navbar.Collapse id="basic-navbar-nav">
                <Nav className="mr-auto">
                  <Nav.Link href="/tutorials">Tutorials</Nav.Link>
-                 <Nav.Link href="/tests">Take Tests</Nav.Link>
+                 <Nav.Link href="/tests">Take Test</Nav.Link>
                  <Nav.Link href="/contactUs">Contact Us</Nav.Link>
                </Nav>
-             <h2><Badge color="primary" style={{textTransform: 'capitalize'}}> WelCome..{user.username} 🇷</Badge></h2>
+             <h2><Badge color="primary" style={{textTransform: 'capitalize'}}> WelCome..{account.username} 🇷</Badge></h2>
            <Button variant="danger" href="/logout">logout</Button>
 
              </Navbar.Collapse>
@@ -102,7 +102,7 @@ else
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/tutorials">Tutorials</Nav.Link>
-          <Nav.Link href="/tests">Take Tests</Nav.Link>
+          <Nav.Link href="/tests">Take Practice Test</Nav.Link>
           <Nav.Link href="/contactUs">Contact Us</Nav.Link>
         </Nav>
         <Form inline>
