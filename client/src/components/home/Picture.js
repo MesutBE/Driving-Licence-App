@@ -13,7 +13,7 @@ const Picture = () => {
 
         <h3 className="h-text">
           Anywhere, anytime.
-          <br /> Prepare for your driving license today!
+          <br /> Prepare for your driving licence today!
         </h3>
       </Row>
       <a href="#cards-part">
