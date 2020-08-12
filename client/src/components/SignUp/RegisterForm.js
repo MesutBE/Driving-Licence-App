@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import {Redirect} from 'react-router-dom';
 import CustomNavbar from "../home/CustomNavbar";
 import Footer from "../home/Footer";
+import Tips from "./Tips";
 import './style.css';
 
 
@@ -125,44 +126,9 @@ class RegisterForm extends Component {
             if (typeof fields["password"] !== "undefined") {
               if (!fields["password"].match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
                 formIsValid = false;
-                errors["password"] = "*Please enter secure and strong password.";
+                errors["password"] = "Minimum 8 characters in length( Contains Lowercase Letters, Uppercase Letters and Symbols)";
               }
             }
-            if (!fields["country"]) {
-                formIsValid = false;
-                errors["country"] = "*Please enter your Country.";
-              }
-
-              if (typeof fields["country"] !== "undefined") {
-                if (!fields["country"].match(/^[a-zA-Z ]/)) {
-                  formIsValid = false;
-                  errors["country"] = "*Please enter text or alphabet only.";
-                }
-              }
-
-                    if (!fields["address"]) {
-                      formIsValid = false;
-                      errors["address"] = "*Please enter your address.";
-                    }
-
-                    if (typeof fields["address"] !== "undefined") {
-                      if (!fields["address"].match(/^[a-zA-Z ]/)) {
-                        formIsValid = false;
-                        errors["address"] = "*Please enter text or alphabet only.";
-                      }
-                    }
-
-      if (!fields["mobile"]) {
-        formIsValid = false;
-        errors["mobile"] = "*Please enter your mobile no.";
-      }
-
-      if (typeof fields["mobile"] !== "undefined") {
-        if (!fields["mobile"].match(/^[0-9]{10}$/)) {
-          formIsValid = false;
-          errors["mobile"] = "*Please enter valid mobile no.";
-        }
-      }
       if (!fields["secretquestion"]) {
           formIsValid = false;
           errors["secretquestion"] = "*Please enter your secretquestion.";
@@ -206,24 +172,26 @@ class RegisterForm extends Component {
     return (
     <div id="main-registration-container">
     <CustomNavbar />
+
      <div id="register">
         <h3>User Registration</h3>
+        <p className="required">* are mandatory fields</p>
         <form method="post"  name="userRegistrationForm"  onSubmit= {this.submituserRegistrationForm} >
-        <label>First Name:</label>
+        <label>First Name:<span className="required">*</span></label>
         <input type="text" name="firstName" value={this.state.fields.firstName} onChange={this.handleChange} />
         <div className="errorMsg">{this.state.errors.firstName}</div>
-        <label>Last Name:</label>
+        <label>Last Name:<span className="required">*</span></label>
         <input type="text" name="lastName" value={this.state.fields.lastName} onChange={this.handleChange} />
         <div className="errorMsg">{this.state.errors.lastName}</div>
-        <label>User Name:</label>
+        <label>User Name:<span className="required">*</span></label>
         <input type="text" name="userName" value={this.state.fields.userName} onChange={this.handleChange} />
         <div className="errorMsg">{this.state.errors.userName}</div>
-        <label>Email ID:</label>
+        <label>Email ID: <span className="required">*</span></label>
         <input type="text" name="email" value={this.state.fields.email} onChange={this.handleChange}  />
         <div className="errorMsg">{this.state.errors.email}</div>
-        <label>Password:</label>
+        <label>Password:<span className="required">*</span></label>
         <input type="password" name="password" value={this.state.fields.password} onChange={this.handleChange} />
-        <div className="errorMsg">{this.state.errors.password}</div>
+        <Tips/><div className="errorMsg">{this.state.errors.password}</div>
         <label>Country:</label>
         <input type="text" name="country" value={this.state.fields.country} onChange={this.handleChange} />
         <div className="errorMsg">{this.state.errors.country}</div>
@@ -233,10 +201,10 @@ class RegisterForm extends Component {
         <label>Mobile No:</label>
         <input type="text" name="mobile" value={this.state.fields.mobile} onChange={this.handleChange}   />
         <div className="errorMsg">{this.state.errors.mobile}</div>
-        <label>Secret Question:</label>
+        <label>Secret Question: <span className="required">*</span></label>
         <input type="text" name="secretquestion" value={this.state.fields.secretquestion} onChange={this.handleChange} />
         <div className="errorMsg">{this.state.errors.secretquestion}</div>
-        <label>Secret Answer:</label>
+        <label>Secret Answer:<span className="required">*</span></label>
         <input type="text" name="secretanswer" value={this.state.fields.secretanswer} onChange={this.handleChange} />
         <div className="errorMsg">{this.state.errors.secretanswer}</div>
 
