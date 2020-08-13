@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Driving-Licence-App/static/css/main.67abad8d.chunk.css",
+    "main.js": "/Driving-Licence-App/static/js/main.9b96bd13.chunk.js",
+    "main.js.map": "/Driving-Licence-App/static/js/main.9b96bd13.chunk.js.map",
+    "runtime-main.js": "/Driving-Licence-App/static/js/runtime-main.db813639.js",
+    "runtime-main.js.map": "/Driving-Licence-App/static/js/runtime-main.db813639.js.map",
+    "static/css/2.c2d3b1f5.chunk.css": "/Driving-Licence-App/static/css/2.c2d3b1f5.chunk.css",
+    "static/js/2.57cd9146.chunk.js": "/Driving-Licence-App/static/js/2.57cd9146.chunk.js",
+    "static/js/2.57cd9146.chunk.js.map": "/Driving-Licence-App/static/js/2.57cd9146.chunk.js.map",
+    "index.html": "/Driving-Licence-App/index.html",
+    "precache-manifest.33430f31c20c5831cd7f223862eec48f.js": "/Driving-Licence-App/precache-manifest.33430f31c20c5831cd7f223862eec48f.js",
+    "service-worker.js": "/Driving-Licence-App/service-worker.js",
+    "static/css/2.c2d3b1f5.chunk.css.map": "/Driving-Licence-App/static/css/2.c2d3b1f5.chunk.css.map",
+    "static/css/main.67abad8d.chunk.css.map": "/Driving-Licence-App/static/css/main.67abad8d.chunk.css.map",
+    "static/js/2.57cd9146.chunk.js.LICENSE.txt": "/Driving-Licence-App/static/js/2.57cd9146.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.db813639.js",
+    "static/css/2.c2d3b1f5.chunk.css",
+    "static/js/2.57cd9146.chunk.js",
+    "static/css/main.67abad8d.chunk.css",
+    "static/js/main.9b96bd13.chunk.js"
+  ]
+}
