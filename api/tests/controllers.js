@@ -186,9 +186,12 @@ const controllers = {
 
 				if (user_answer.length === situation.length) {
 					for (let j = 0; j < situation.length; j++) {
-						situation[j].correctOption === user_answer[j].answer
-							? (isCorr = isCorr && true)
-							: (isCorr = false);
+						user_answer.filter(el => Number(el.questionId) === Number(situation[j].questionId))
+							.map(a => 
+								Number(situation[j].correctOption) === Number(a.answer)
+								? (isCorr = isCorr && true)
+								: (isCorr = false) )
+							
 					}
 				} else {
 					isCorr = false;

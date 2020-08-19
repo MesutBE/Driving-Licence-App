@@ -25,7 +25,7 @@ const FreeTest = (props) => {
           (el) => el.questionId === idx
         );
         if (isAnswered_before.length === 0) {
-          let usr_answer = userAnswer.slice();
+          let usr_answer = answer_in_storage.slice();
           usr_answer.push({
             questionId: idx,
             answer: answerNo,
@@ -35,8 +35,8 @@ const FreeTest = (props) => {
           setUserAnswer(aa);
           window.localStorage.setItem("userAnswer", JSON.stringify(usr_answer));
         } else {
-          let usr_answer = isAnswered_before.slice();
-          let changedAnswer = usr_answer.filter((el) => el.questionId !== idx);
+          //let usr_answer = isAnswered_before.slice();
+          let changedAnswer = answer_in_storage.filter((el) => el.questionId !== idx);
           changedAnswer.push({
             questionId: idx,
             answer: answerNo,
